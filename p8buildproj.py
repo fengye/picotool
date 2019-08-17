@@ -26,12 +26,16 @@ if __name__ == "__main__":
 		f.write(build_source)
 
 	class BuildArgs:
-		def __init__(self, filename, lua, gfx):
+		def __init__(self, filename, lua, gfx, gff, levelmap, sfx, music):
 			self.filename = filename
 			self.lua = lua
 			self.gfx = gfx
+			self.gff = gff
+			self.map = levelmap
+			self.sfx = sfx
+			self.music = music
 
-	build_args = BuildArgs(args.output, temp_filename, args.resource)
+	build_args = BuildArgs(args.output, temp_filename, args.resource, args.resource, args.resource, args.resource, args.resource)
 	build.do_build(build_args)
 	
 	print("Remove temp file: " + temp_filename)
